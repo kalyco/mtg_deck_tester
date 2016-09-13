@@ -1,0 +1,15 @@
+<form class="form-inline">
+  <div class="form-group">
+  	<%= simple_form_for @user, method: "post", action: "create" do |f| %>
+      <%= render "shared/error_messages" %>
+      <label for="email">Email:</label>
+  		<%= f.input :email, required: true, class: "form-control", label: false, id: "email", type: "email" %>
+      <label for="pwd">Password:</label>
+  		<%= f.input :encrypted_password, required: true, label: false, class: "form-control", id: "pwd", type: "password" %>
+      <div class="checkbox">
+        <%= f.input :remember_token, as: :boolean, type:"checkbox", label: "Remember me" %>
+      </div>
+  		  <%= f.button :submit, "Submit", class: "btn btn-default", action: "create", method: "post" %>
+  	<% end %>
+  </div>
+</form>
